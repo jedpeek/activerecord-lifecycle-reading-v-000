@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
 	def create
 	  @post = Post.new(params)
+    before_save :make_title_case 
 	  @post.save
 	  redirect_to post_path(@post)
 	end
